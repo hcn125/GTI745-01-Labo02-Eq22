@@ -19,10 +19,17 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI hpText;
     public GameObject winTextObject;
 
+    //second level wall
+    public GameObject BridgeLevel;
+    public GameObject BlockLevelWall;
+    public GameObject BlockLevelWallSide1;
+    public GameObject BlockLevelWallSide2;
+
     //mouvement
     public float speed = 0;
     private int count;
     private int ballLeft = 11 ;
+    private int currentLevel = 1;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -57,12 +64,25 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText() {
         countText.text = "Count : " + count.ToString() + " Pickup left : " + ballLeft;
-       
 
-        if (count > 10) {
-            winTextObject.SetActive(true);
-        
+
+        if (count > 10 && currentLevel == 1)
+        {
+            currentLevel++;
+            ballLeft = 8;
+            count = 0;
+            currentTime = 30.0f;
+            countText.text = "Count : " + count.ToString() + " Pickup left : " + ballLeft;
+            BridgeLevel.SetActive(true);            
+            BlockLevelWallSide1.SetActive(true);
+            BlockLevelWallSide2.SetActive(true);
+            BlockLevelWall.SetActive(false);
         }
+        else if (count > 7 && currentLevel == 2) {
+            winTextObject.SetActive(true);
+        }
+
+
     }
 
     void SetHpText()
@@ -113,6 +133,16 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PickUp"))
+        {
+            coinSource.Play();
+            other.gameObject.SetActive(false);
+            count++;
+            ballLeft--;
+
+            SetCountText();
+        }
+
+        if (other.gameObject.CompareTag("PickUp2"))
         {
             coinSource.Play();
             other.gameObject.SetActive(false);
