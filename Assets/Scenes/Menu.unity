@@ -325,7 +325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inserez les commandes
+  m_text: "D\xE9placements: \u2191\u2193\u2190\u2192\nPause/Unpause: P"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2701,6 +2701,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8606beec691a7468ac6d4e884f4133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myGameObjects: []
+  current: {fileID: 0}
 --- !u!1 &1098620034
 GameObject:
   m_ObjectHideFlags: 0

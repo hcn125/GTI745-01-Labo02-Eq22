@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI ballSpeedText;
     public TextMeshProUGUI countText;
     public TextMeshProUGUI countDownText;
+    public TextMeshProUGUI hpText;
     public GameObject winTextObject;
 
     //mouvement
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+    private int hp = 2;
 
     //countdown
     float currentTime = 0f;
@@ -63,6 +65,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void SetHpText()
+    {
+        if (hp < 0)
+        {
+            EndGame();
+        }
+        else {
+            hpText.text = "Hp : " + hp.ToString() + " left";
+        }
+    }
+
     void SetBallSpeedText() {
 
         float ballVelocity = (float)System.Math.Round(rb.velocity.magnitude, 1);        
@@ -77,6 +90,7 @@ public class PlayerController : MonoBehaviour
         
         SetBallSpeedText();
         countDownUpdate();
+        SetHpText();
     }
 
     private void countDownUpdate()
@@ -113,6 +127,7 @@ public class PlayerController : MonoBehaviour
     {   
         if (other.gameObject.CompareTag("Walls")) {
             wallSource.Play();
+            hp--;
         }
     }
 }
