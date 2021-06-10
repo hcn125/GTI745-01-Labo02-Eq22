@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
                         {
                             mainMenu = pauseMenu.GetComponent<MainMenu>();
                             mainMenu.previous();
-                            System.Threading.Thread.Sleep(200);
+                            System.Threading.Thread.Sleep(500);
                         }
                     }
                     break;
@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
                         {
                             mainMenu = pauseMenu.GetComponent<MainMenu>();
                             mainMenu.next();
-                            System.Threading.Thread.Sleep(200);
+                            System.Threading.Thread.Sleep(500);
                         }
                     }
                     break;

@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 88195571}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Walls
+  m_TagString: Pendulum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 127228477}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Walls
+  m_TagString: Pendulum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3968,7 +3968,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ebdb80d61ee9d744fab986cf700edbc1, type: 2}
+  - {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6303,7 +6303,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "D\xE9placements: \u2191\u2193\u2190\u2192\nPause/Unpause: P"
+  m_text: "D\xE9placements: \nAvant\t\t\t\u2191\nArri\xE8re\t\t\u2193\nGauche\t\t\u2190\nDroite\t                   
+    \u2192\nPause/Unpause:\t P"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7390,7 +7391,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
-        m_MethodName: SetVolume
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
