@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 {
     //sound
     public AudioSource coinSource;
+    public AudioSource wallSource;
 
     //elements
     public TextMeshProUGUI ballSpeedText;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     //countdown
     float currentTime = 0f;
-    float startingTime = 10f;
+    float startingTime = 20f;
 
 
     // Start is called before the first frame update
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count : " + count.ToString() + " Pickup left : " + ballLeft;
        
 
-        if (count >= 10) {
+        if (count > 10) {
             winTextObject.SetActive(true);
         
         }
@@ -69,10 +70,7 @@ public class PlayerController : MonoBehaviour
     }
 
     void FixedUpdate()
-    {    
-
-
-
+    {   
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
 
@@ -98,15 +96,23 @@ public class PlayerController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp")) {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
             coinSource.Play();
             other.gameObject.SetActive(false);
             count++;
             ballLeft--;
 
             SetCountText();
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {   
+        if (other.gameObject.CompareTag("Walls")) {
+            wallSource.Play();
         }
     }
 }
