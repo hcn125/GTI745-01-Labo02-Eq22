@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
-    private int hp = 2;
+    private int hp = 0;
 
     //countdown
     float currentTime = 0f;
@@ -124,8 +124,10 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other)
-    {   
+    {
         if (other.gameObject.CompareTag("Walls")) {
+            wallSource.Play();
+        } else if (other.gameObject.CompareTag("Pendulum")) {
             wallSource.Play();
             hp--;
         }
